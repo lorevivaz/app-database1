@@ -14,10 +14,11 @@ export default function App() {
   useEffect(() => {
     const checkFirstLunch = async () => {
       try {
+
         const storedSid = await AsyncStorage.getItem('sid');
 
         if (storedSid) {
-          setMessage("Secondo avvio, sid letto da dico");
+          setMessage("Secondo avvio, sid letto da disco");
           console.log("Sid letto da disco: ", storedSid);
         } else {
           // Primo avvio dell'app
