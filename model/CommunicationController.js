@@ -1,3 +1,5 @@
+
+
 // CommunicationController.js
 // CommunicationController è una classe che si occupa di gestire le chiamate API al server.
 class CommunicationController {
@@ -41,17 +43,20 @@ class CommunicationController {
     }
 
     static async register() {
-        let endpoint = "user/";
+        let endpoint = "user/";  // Assicurati che sia questo l'endpoint corretto.
         let verb = 'POST';
-        let queryParams = {};
-        let bodyParams = {};
+        let queryParams = {}; // Parametri per la query, vuoto qui
+        let bodyParams = {}; // Corpo della richiesta, vuoto se non richiesto
+    
         try {
-            console.log("Chiamata API per registrazione utente...");
+            console.log("Inizio chiamata API per registrazione utente...");
+            console.log("Endpoint:", endpoint, "Metodo:", verb, "QueryParams:", queryParams, "BodyParams:", bodyParams);
+    
             const response = await this.genericRequest(endpoint, verb, queryParams, bodyParams);
-
+    
             if (response && response.sid) {
                 console.log("Registrazione completata. SID ricevuto:", response.sid);
-                return response.sid; // Restituiamo solo il SID
+                return response.sid;
             } else {
                 console.error("Errore: nessun SID trovato nella risposta.");
                 return null;
